@@ -13,9 +13,12 @@ function googleLogin(){
 
         .then(result => {
             const user = result.user;
-            document.writeln(`Hello ${user.displayName}`);
+            document.writeln(`Hello ${user.displayName}!`);
+
+            const link = "<a href = item.index>here</a>";
+
+            document.writeln(`Click ${link} to go back`);
             console.log(user);
-            displayPost();
         }).catch(console.log);
 
 }
@@ -40,7 +43,7 @@ function updatePost(e){
     const myPost = db.collection(`posts`).doc(`first`);
 
     myPost.update({title: e.target.value})
-    document.getElementById("query").innerHTML = "your value has been altered to " + "\"" +e.target.value + "\""; 
+    document.getElementById("query").innerHTML = "your value has been altered to " + "\"" +e.target.value + "\"" + "in the database."; 
     
 
 }
